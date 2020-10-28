@@ -14,9 +14,15 @@ public class loginController {
         this.accountRepository = accountRepository;
     }
 
+    @RequestMapping("/")
+    public String getLogin(Model model){
+
+        model.addAttribute("Accounts", accountRepository.findAll());
+        return "accounts/list";
+    }
 
     @RequestMapping("/Login")
-    public String getAccounts(Model model){
+    public String getOtherLogin(Model model){
 
         model.addAttribute("Accounts", accountRepository.findAll());
         return "accounts/list";
