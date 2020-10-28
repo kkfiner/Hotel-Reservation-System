@@ -18,10 +18,12 @@ public class bootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        account tmp = new account(2, "John", "Doe", "Admin", "Admin".toCharArray());
-        accountRepository.save(tmp);
-        tmp = new staff();
-        accountRepository.save(tmp);
+        account tmp1 = new account(2, "John", "Doe", "Admin", "Admin".toCharArray());
+        accountRepository.save(tmp1);
+
+        staff tmp = new staff();
+        account tmp2 = new account(tmp);
+        accountRepository.save(tmp2);
 
 
         System.out.println("Opened in BootStrap");
