@@ -10,6 +10,6 @@ public class homeController {
 
     @RequestMapping("/Home")
     public String getAccounts(Model model){
-        return "list";
+        return "accounts/list";
     }
 }
