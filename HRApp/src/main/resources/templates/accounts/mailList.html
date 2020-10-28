@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dark Side of the Rainbow</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+<div th:include="layout::header"></div>
+
+<section id="content">
+<!--
+    <h1>Dark Side of the Rainbow</h1>
+    <h2>Here is our "Dark Side of the Rainbow" Musics</h2>
+    <div class="alert alert-success hide" role="alert" th:text="${success}" th:if="${success}">
+        This is a success alert—check it out!
+    </div>-->
+
+    <!-- if -->
+
+    <h4 th:if="${mails.size() eq 0}">No mails were found</h4>
+
+    <!-- else -->
+    <table th:unless="${mails.size() eq 0}" class="table table-hover table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">MAIL Id</th>
+            <th scope="col">Sender address </th>
+            <th scope="col">Sender </th>
+            <th scope="col">Receiver's address</th>
+            <th scope="col">Title </th>
+            <th scope="col">Content</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="mail : ${mails}">
+            <th scope="row" th:text="${mail.mailId}">1</th>
+            <td th:text="${mail.senderAddr}">123@gmail.com</td>
+            <td th:text="${mail.senderName}">John</td>
+            <td th:text="${mail.recipientAddr}">123@hotel.com</td>
+            <td th:text="${mail.mailTitle}">gengeral question</td>
+            <td th:text="${mail.mailContext}">123123123</td>
+        </tr>
+        </tbody>
+    </table>
+
+</section>
+
+<div th:include="layout::footer"></div>
+
+</body>
+</html>
