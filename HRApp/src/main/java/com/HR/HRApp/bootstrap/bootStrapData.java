@@ -3,7 +3,6 @@ package com.HR.HRApp.bootstrap;
 import com.HR.HRApp.repositories.accountRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import com.HR.HRApp.domain.account;
 
 @Component
 public class bootStrapData implements CommandLineRunner {
