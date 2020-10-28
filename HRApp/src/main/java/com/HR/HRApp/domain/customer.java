@@ -1,6 +1,6 @@
 package com.HR.HRApp.domain;
 
-public class customer {
+public class customer extends account{
 
 
 }

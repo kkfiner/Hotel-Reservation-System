@@ -1,9 +1,10 @@
 package com.HR.HRApp.bootstrap;
 
+import com.HR.HRApp.domain.account;
+import com.HR.HRApp.domain.staff;
 import com.HR.HRApp.repositories.accountRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import com.HR.HRApp.domain.account;
 
 @Component
 public class bootStrapData implements CommandLineRunner {
@@ -17,10 +18,16 @@ public class bootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        account tmp = new account(2, "John", "Doe", "Admin", "Admin".toCharArray());
-        accountRepository.save(tmp);
+        account tmp1 = new account(2, "John", "Doe", "Admin", "Admin".toCharArray());
+        accountRepository.save(tmp1);
+
+        staff tmp = new staff();
+        account tmp2 = new account(tmp);
+        accountRepository.save(tmp2);
+
 
         System.out.println("Opened in BootStrap");
         System.out.println("Number of accounts = " + accountRepository.count());
     }
 }
+
